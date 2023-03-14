@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Recommder System</title>
+	<!-- Link to Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Link to custom CSS -->
+	<style>
+		.navbar-brand img {
+			height: 30px; /* Adjust height as needed */
+			margin-right: 10px;
+		}
+        .mcard {
+            align-items: center;
+        }
+        .my-element {
+			background-color: #fcfafa;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.my-element:hover {
+			background-color: #e1e174;
+			border: 1px solid #0c1001;
+		}
+	</style>
+</head>
+<body>
+
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#" style="font-size: 25px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+			<img src="https://img.freepik.com/premium-vector/beautiful-girls-are-reading-books-with-smiles_28461-131.jpg?w=740" style="height: 110px;width: auto;margin-right: 30px;margin-left: 50px;"> Book Recommder System
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/"><img src="https://cdn-icons-png.flaticon.com/512/2549/2549900.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/recommed"><img src="https://cdn-icons-png.flaticon.com/512/3820/3820147.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-link" href="/about"><img src="https://cdn-icons-png.flaticon.com/512/4210/4210456.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+			
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+    <div class="container" >
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-black" style="font-size:35px; margin-top: 35px;">Recommend A Book
+                <span><img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?w=740&t=st=1676963574~exp=1676964174~hmac=c68110f642dd7b1302ff8cd68cfc0cdb16c504d7e7b682dc646382dba7f61471" alt="" style="height: 100px;width: auto;margin-left: 100px;"></span>
+                </h1>  
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control" style="width: 75%;height: 55px;border-radius: 25px;border-color: #0c0c00;border-width: 1.5px;"><br>
+                    <input type="submit" class="btn btn-lg btn-warning" style="align:left ;">
+
+                </form>
+
+            
+            
+            </div>
+
+                
+          
+
+                {% if data %}
+                    
+                
+                    {% for i in data[0:4] %}
+                    
+                        <div class="col-md-3" style="margin-top: 50px;">
+                                <div class="card-body mcard my-element" style="text-align: center;border: 1px solid #ccc; border-radius: 10px; padding: 10px;height: 450px;width: 270px;">
+                                    <img src="{{ i[2] }}" alt="Book Cover" style="margin-top: 30px;margin-bottom: 25px;">
+                                
+                                    <div class = "mcard">
+                                        <h3 style="text-align: center;">{{ i[0][0:60] }}</h3>
+                                        <h5>Author : {{ i[1]  }}</h5>
+                                        <div style="display: inline-block;" class="mcard">
+                                            <h6>Votes : {{ i[3] }}</h6>
+                                        </div>
+                                    </div>
+                                    <div style="display: inline-block;" class="mcard">
+                                        <h6>         </h6>
+                                    </div>
+
+                                    <div style="display: inline-block;">
+                                        <h6>Rating : {{ i[4] }}<span>⭐</span></h6>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+                
+
+
+
+
+        </div>
+    </div>
+
+
+
+	
+
+
+
+
+
+
+    <div style="display: inline-block;;position: relative;margin-right: 10%;margin-top: 50px; float: right;"><span style="float: left;"><img src="https://basmo.app/wp-content/uploads/2021/12/quotes-about-reading-books.webp" alt="" style="width: 250px;height: auto;"></span> <img src="https://tinyurl.com/bookreaderg" alt="" style="width: 300px;height: auto;">
+            
+    </div>
+
+	<!-- Link to Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

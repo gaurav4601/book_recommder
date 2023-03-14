@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Recommder System</title>
+	<!-- Link to Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Link to custom CSS -->
+	<style>
+		.navbar-brand img {
+			height: 40px; /* Adjust height as needed */
+			margin-right: 10px;
+			background-color: whitesmoke;
+		}
+        .mcard {
+            align-items: center;
+        }
+		.my-element {
+			background-color: #fcfafa;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.my-element:hover {
+			background-color: #e1e174;
+			border: 1px solid #0c1001;
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#" style="font-size: 25px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+			<img src="https://img.freepik.com/premium-vector/beautiful-girls-are-reading-books-with-smiles_28461-131.jpg?w=740" style="height: 110px;width: auto;margin-right: 30px;margin-left: 50px;"> Book Recommder System
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/"><img src="https://cdn-icons-png.flaticon.com/512/2549/2549900.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/recommed"><img src="https://cdn-icons-png.flaticon.com/512/3820/3820147.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-link" href="/about"><img src="https://cdn-icons-png.flaticon.com/512/4210/4210456.png" alt="Home" style="width: 30px;height: auto;margin-left: 30px;margin-right: 25px;"></a>
+				</li>
+			
+			</ul>
+		</div>
+	</nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-black" style="font-size:35px; margin-top: 35px;margin-right: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Top 50 Books </h1>  
+            </div>
+
+
+          
+
+
+                {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top: 50px;">
+                        <div class="card-body mcard my-element" style="text-align: center;border: 1px solid #ccc; border-radius: 10px; padding: 10px;height: 470px;width: 270px;">
+                            <img src="{{ image[i] }}" alt="Book Cover" style="margin-top: 30px;margin-bottom: 25px;">
+                        
+                            <div class = "mcard">
+                                <h3 style="text-align: center;">{{ book_name[i][0:60] }}</h3>
+                                <h5>Author : {{ author[i] }}</h5>
+                                <div style="display: inline-block;" class="mcard">
+                                    <h6>Votes : {{ votes[i] }}</h6>
+                                </div>
+                            </div>
+                            <div style="display: inline-block;" class="mcard">
+                                <h6>         </h6>
+                            </div>
+
+                            <div style="display: inline-block;">
+                                <h6>Rating : {{ rating[i] }} <span>⭐</span></h6>
+                            </div>
+                            
+                        </div>
+                </div>
+                {% endfor %}
+
+
+
+
+        </div>
+    </div>
+
+
+
+	
+
+
+
+
+
+
+
+
+	<!-- Link to Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
