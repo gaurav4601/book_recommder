@@ -3,10 +3,10 @@ import pickle
 import numpy as np
 import joblib
 
-popular_df = joblib.load('popular.joblib')
-pt = joblib.load('pt.joblib')
-books = joblib.load('books.joblib')
-similarity_score = joblib.load('similarity_score.joblib')
+popular_df = joblib.load('pkl/popular.joblib')
+pt = joblib.load('pkl/pt.joblib')
+books = joblib.load('pkl/books.joblib')
+similarity_score = joblib.load('pkl/similarity_score.joblib')
 
 
 app = Flask(__name__)
